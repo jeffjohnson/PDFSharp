@@ -33,6 +33,7 @@
 using System;
 using System.Diagnostics;
 using System.Reflection;
+using System.IO;
 using MigraDoc.DocumentObjectModel.Internals;
 using MigraDoc.DocumentObjectModel.Fields;
 using MigraDoc.DocumentObjectModel.Shapes;
@@ -423,6 +424,20 @@ namespace MigraDoc.DocumentObjectModel
       Add(image);
       return image;
     }
+
+		/// <summary>
+		/// Adds a new image to the collection from a MemoryStream.
+		/// </summary>
+		/// <returns></returns>
+		public Image AddImage(MemoryStream stream)
+		{
+			Image image = new Image();
+			image.StreamBased = true;
+			image.ImageStream = stream;
+			image.Name = String.Empty;
+			Add(image);
+			return image;
+		}
 
     /// <summary>
     /// 

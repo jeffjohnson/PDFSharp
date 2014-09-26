@@ -194,6 +194,16 @@ namespace PdfSharp.Drawing
       return new XImage(path);
     }
 
+		/// <summary>
+		/// Creates an image from the specified stream.
+		/// </summary>
+		/// <param name="stream">A MemoryStream object containing the image data.</param>
+		/// <returns></returns>
+		public static XImage FromStream(MemoryStream stream)
+		{
+			return new XImage(stream);
+		}
+
     /// <summary>
     /// Tests if a file exist. Supports PDF files with page number suffix.
     /// </summary>

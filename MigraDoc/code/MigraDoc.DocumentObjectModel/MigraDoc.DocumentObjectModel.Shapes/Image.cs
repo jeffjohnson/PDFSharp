@@ -64,6 +64,16 @@ namespace MigraDoc.DocumentObjectModel.Shapes
       Name = name;
     }
 
+		/// <summary>
+		/// Initializes a new instance of the Image class from the supplied MemoryStream
+		/// </summary>
+		public Image(MemoryStream imageStream)
+			: this()
+		{
+			ImageStream = imageStream;
+			Name = String.Empty;
+		}
+
     //#region Methods
     /// <summary>
     /// Creates a deep copy of this object.
@@ -89,6 +99,16 @@ namespace MigraDoc.DocumentObjectModel.Shapes
     //#endregion
 
     //#region Properties
+		/// <summary>
+		/// Gets or sets the value for an image in memory.
+		/// </summary>
+		public MemoryStream ImageStream
+		{
+			get { return this.imageStream; }
+			set { this.imageStream = value; }
+		}
+		internal MemoryStream imageStream = null;
+
     /// <summary>
     /// Gets or sets the name of the image.
     /// </summary>
@@ -166,6 +186,17 @@ namespace MigraDoc.DocumentObjectModel.Shapes
     }
     [DV]
     internal NDouble resolution = NDouble.NullValue;
+
+		/// <summary>
+		/// Gets or sets a flag to identify that this image is stream based.
+		/// </summary>
+		public bool StreamBased
+		{
+			get { return this.streamBased.Value; }
+			set { this.streamBased.Value = value; }
+		}
+		[DV]
+		internal NBool streamBased = NBool.NullValue;
     //#endregion
 
     #region Internal
@@ -199,6 +230,10 @@ namespace MigraDoc.DocumentObjectModel.Shapes
     /// </summary>
     public string GetFilePath(string workingDir)
     {
+			// no need to return a file path if the image is stream based
+			if (this.StreamBased)
+				return String.Empty;
+
       string filePath = "";
 
       try

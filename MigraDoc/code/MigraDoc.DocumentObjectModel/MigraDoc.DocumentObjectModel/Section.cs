@@ -32,6 +32,7 @@
 
 using System;
 using System.Diagnostics;
+using System.IO;
 using System.Reflection;
 using MigraDoc.DocumentObjectModel.Internals;
 using MigraDoc.DocumentObjectModel.Visitors;
@@ -172,6 +173,15 @@ namespace MigraDoc.DocumentObjectModel
     {
       return this.Elements.AddImage(fileName);
     }
+
+		/// <summary>
+		/// Adds a new Image to the paragraph from a MemoryStream.
+		/// </summary>
+		/// <returns></returns>
+		public Image AddImage(MemoryStream stream)
+		{
+			return this.Elements.AddImage(stream);
+		}
 
     /// <summary>
     /// Adds a new textframe to the section.

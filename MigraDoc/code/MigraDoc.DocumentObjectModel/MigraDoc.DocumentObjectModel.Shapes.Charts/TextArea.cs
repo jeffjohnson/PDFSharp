@@ -31,6 +31,7 @@
 #endregion
 
 using System;
+using System.IO;
 using MigraDoc.DocumentObjectModel.IO;
 using MigraDoc.DocumentObjectModel.Internals;
 using MigraDoc.DocumentObjectModel.Tables;
@@ -124,6 +125,15 @@ namespace MigraDoc.DocumentObjectModel.Shapes.Charts
     {
       return this.Elements.AddImage(fileName);
     }
+
+		/// <summary>
+		/// Adds a new Image to the paragraph from a MemoryStream.
+		/// </summary>
+		/// <returns></returns>
+		public Image AddImage(MemoryStream stream)
+		{
+			return this.Elements.AddImage(stream);
+		}
 
     /// <summary>
     /// Adds a new legend to the text area.
