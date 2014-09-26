@@ -233,6 +233,54 @@ namespace MigraDoc.DocumentObjectModel
     [DV]
     internal Unit rightMargin = Unit.NullValue;
 
+		/// <summary>
+		/// Gets or sets the top margin of the first page in the section
+		/// if DifferentFirstPageMargins is specified.
+		/// </summary>
+		public Unit FirstPageTopMargin
+		{
+			get { return this.firstPageTopMargin; }
+			set { this.firstPageTopMargin = value; }
+		}
+		[DV]
+		internal Unit firstPageTopMargin = Unit.NullValue;
+
+		/// <summary>
+		/// Gets or sets the bottom margin of the first page in the section
+		/// if DifferentFirstPageMargins is specified.
+		/// </summary>
+		public Unit FirstPageBottomMargin
+		{
+			get { return this.firstPageBottomMargin; }
+			set { this.firstPageBottomMargin = value; }
+		}
+		[DV]
+		internal Unit firstPageBottomMargin = Unit.NullValue;
+
+		/// <summary>
+		/// Gets or sets the left margin of the first page in the section
+		/// if DifferentFirstPageMargins is specified.
+		/// </summary>
+		public Unit FirstPageLeftMargin
+		{
+			get { return this.firstPageLeftMargin; }
+			set { this.firstPageLeftMargin = value; }
+		}
+		[DV]
+		internal Unit firstPageLeftMargin = Unit.NullValue;
+
+		/// <summary>
+		/// Gets or sets the right margin of the first page in the section
+		/// if DifferentFirstPageMargins is specified.
+		/// </summary>
+		public Unit FirstPageRightMargin
+		{
+			get { return this.firstPageRightMargin; }
+			set { this.firstPageRightMargin = value; }
+		}
+		[DV]
+		internal Unit firstPageRightMargin = Unit.NullValue;
+
     /// <summary>
     /// Gets or sets a value which defines whether the odd and even pages
     /// of the section have different header and footer.
@@ -245,17 +293,29 @@ namespace MigraDoc.DocumentObjectModel
     [DV]
     internal NBool oddAndEvenPagesHeaderFooter = NBool.NullValue;
 
-    /// <summary>
-    /// Gets or sets a value which define whether the section has a different
-    /// first page header and footer.
-    /// </summary>
-    public bool DifferentFirstPageHeaderFooter
-    {
-      get { return this.differentFirstPageHeaderFooter.Value; }
-      set { this.differentFirstPageHeaderFooter.Value = value; }
-    }
-    [DV]
-    internal NBool differentFirstPageHeaderFooter = NBool.NullValue;
+		/// <summary>
+		/// Gets or sets a value which define whether the section has a different
+		/// first page header and footer.
+		/// </summary>
+		public bool DifferentFirstPageHeaderFooter
+		{
+			get { return this.differentFirstPageHeaderFooter.Value; }
+			set { this.differentFirstPageHeaderFooter.Value = value; }
+		}
+		[DV]
+		internal NBool differentFirstPageHeaderFooter = NBool.NullValue;
+
+		/// <summary>
+		/// Gets or sets a value which define whether the section has a different
+		/// first page margin.
+		/// </summary>
+		public bool DifferentFirstPageMargins
+		{
+			get { return this.differentFirstPageMargins.Value; }
+			set { this.differentFirstPageMargins.Value = value; }
+		}
+		[DV]
+		internal NBool differentFirstPageMargins = NBool.NullValue;
 
     /// <summary>
     /// Gets or sets the distance between the header and the page top
