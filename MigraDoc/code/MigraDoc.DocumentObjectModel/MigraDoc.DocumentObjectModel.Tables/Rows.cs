@@ -227,6 +227,16 @@ namespace MigraDoc.DocumentObjectModel.Tables
       }
     }
     static Meta meta;
+
+    /// <summary>
+    /// Set row.Index for each row in collection
+		/// optimization from AndrewT's patch - http://www.pakeha_by.my-webs.org/downloads/MigraDoc-1.32-TablePatch.patch
+    /// </summary>
+    internal void PopulateItemIndexes()
+		{
+      for (int index = 0; index < this.Count; index++)
+	      this[index].index = index;
+    }
     #endregion
   }
 }

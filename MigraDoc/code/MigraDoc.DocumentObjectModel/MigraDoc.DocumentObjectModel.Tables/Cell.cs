@@ -320,6 +320,17 @@ namespace MigraDoc.DocumentObjectModel.Tables
     [DV]
     internal Borders borders;
 
+		/// <summary>
+		/// Detects if borders have been supplied - from AndrewT's patch - http://www.pakeha_by.my-webs.org/downloads/MigraDoc-1.32-TablePatch.patch
+		/// </summary>
+		public bool HasBorders
+		{
+			get
+			{
+				return borders != null;
+			}
+		}
+
     /// <summary>
     /// Gets the shading object.
     /// </summary>
