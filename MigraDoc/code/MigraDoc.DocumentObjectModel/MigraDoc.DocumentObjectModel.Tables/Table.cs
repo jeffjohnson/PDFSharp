@@ -397,6 +397,32 @@ namespace MigraDoc.DocumentObjectModel.Tables
     [DV]
     internal Borders borders;
 
+		/// <summary>
+		/// Gets the default Borders object for all cells of the column.
+		/// </summary>
+		public Border LastRowOnPageBottomBorder
+		{
+			get
+			{
+				if (this.lastRowOnPageBottomBorder == null)
+					this.lastRowOnPageBottomBorder = this.Borders.Bottom;
+
+				return this.lastRowOnPageBottomBorder;
+			}
+			set
+			{
+				SetParent(value);
+				this.lastRowOnPageBottomBorder = value;
+			}
+		}
+		[DV]
+		internal Border lastRowOnPageBottomBorder;
+
+		/// <summary>
+		/// Gets or sets a flag to indicate the use of custom borders on the last row of each page.
+		/// </summary>
+		public Boolean UseCustomBorderForLastRowOnPage { get; set; }
+
     /// <summary>
     /// Gets the default Shading object for all cells of the column.
     /// </summary>
