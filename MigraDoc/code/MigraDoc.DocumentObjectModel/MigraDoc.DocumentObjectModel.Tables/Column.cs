@@ -118,7 +118,6 @@ namespace MigraDoc.DocumentObjectModel.Tables
 				if (index.IsNull) // optimization from AndrewT's patch - http://www.pakeha_by.my-webs.org/downloads/MigraDoc-1.32-TablePatch.patch
         {
           Columns clms = this.Parent as Columns;
-          //SetValue("Index", clms.IndexOf(this));
 					clms.PopulateItemIndexes(); // optimization from AndrewT's patch - http://www.pakeha_by.my-webs.org/downloads/MigraDoc-1.32-TablePatch.patch
         }
         return index;

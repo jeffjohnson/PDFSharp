@@ -124,7 +124,6 @@ namespace MigraDoc.DocumentObjectModel.Tables
 				if (index.IsNull) // optimization from AndrewT's patch - http://www.pakeha_by.my-webs.org/downloads/MigraDoc-1.32-TablePatch.patch
         {
           Rows rws = this.parent as Rows;
-          //SetValue("Index", rws.IndexOf(this));
 					rws.PopulateItemIndexes(); // optimization from AndrewT's patch - http://www.pakeha_by.my-webs.org/downloads/MigraDoc-1.32-TablePatch.patch
         }
         return index;

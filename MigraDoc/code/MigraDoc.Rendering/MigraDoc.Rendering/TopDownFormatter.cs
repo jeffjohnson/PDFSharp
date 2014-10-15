@@ -234,30 +234,6 @@ namespace MigraDoc.Rendering
       }
       else
       {
-				// hack to get the last row on each page to print a bottom border :(
-				TableRenderInfo tri = lastRenderInfo as TableRenderInfo;
-				if (tri != null)
-				{
-					DocumentObjectModel.Tables.Table table = tri.table;
-					if (table.UseCustomBorderForLastRowOnPage)
-					{
-						TableFormatInfo tfi = tri.FormatInfo as TableFormatInfo;
-						if (tfi != null)
-						{
-							if (!table.Rows[tfi.endRow].HeadingFormat)
-							{
-								foreach (MigraDoc.DocumentObjectModel.Tables.Cell cell in table.Rows[tfi.endRow].Cells)
-								{
-									cell.Borders.Bottom.Color = table.LastRowOnPageBottomBorder.Color;
-									cell.Borders.Bottom.Style = table.LastRowOnPageBottomBorder.Style;
-									cell.Borders.Bottom.Tag = table.LastRowOnPageBottomBorder.Tag;
-									cell.Borders.Bottom.Visible = table.LastRowOnPageBottomBorder.Visible;
-									cell.Borders.Bottom.Width = table.LastRowOnPageBottomBorder.Width;
-								}
-							}
-						}
-					}
-				}
         prevRenderInfo = lastRenderInfo;
         renderInfos.Add(lastRenderInfo);
         if (lastRenderInfo.FormatInfo.IsEnding)

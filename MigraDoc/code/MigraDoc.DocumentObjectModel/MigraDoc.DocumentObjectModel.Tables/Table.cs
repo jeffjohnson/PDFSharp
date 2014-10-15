@@ -405,13 +405,13 @@ namespace MigraDoc.DocumentObjectModel.Tables
 			get
 			{
 				if (this.lastRowOnPageBottomBorder == null)
-					this.lastRowOnPageBottomBorder = this.Borders.Bottom;
+					this.lastRowOnPageBottomBorder = new Border();
 
 				return this.lastRowOnPageBottomBorder;
 			}
 			set
 			{
-				SetParent(value);
+				//SetParent(value);
 				this.lastRowOnPageBottomBorder = value;
 			}
 		}
