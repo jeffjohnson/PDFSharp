@@ -116,8 +116,9 @@ namespace PdfSharp.Pdf.Annotations
       //  "/Rect[{1} {2} {3} {4}]\n/BS<</Type/Border>>\n/Border[0 0 0]\n/C[0 0 0]\n",
       //  this.ObjectID.ObjectNumber, rect.X1, rect.Y1, rect.X2, rect.Y2);
 
+	  // changed hyperlink to not include a border
       if (Elements[Keys.BS] == null)
-        Elements[Keys.BS] = new PdfLiteral("<</Type/Border>>");
+        Elements[Keys.BS] = new PdfLiteral("<</Type/Border/W 0>>");
 
       if (Elements[Keys.Border] == null)
         Elements[Keys.Border] = new PdfLiteral("[0 0 0]");
